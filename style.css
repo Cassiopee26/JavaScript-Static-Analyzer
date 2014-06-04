@@ -1,0 +1,205 @@
+html {
+	height: 100%;
+}
+
+body {
+	color: black;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	background: whitesmoke;
+	font-family: "Droid Sans", Calibri, sans-serif;
+}
+
+#input {
+	height: 100%;
+	width: 100%;
+}
+
+#container {
+	width: 100%;
+	height: 94%;
+	position: absolute;
+	top: 6%;
+}
+
+section#main {
+	position: fixed;
+	width: 50%;
+	height: 100%;
+	overflow-x: auto;
+	overflow-y: auto;
+}
+
+aside {
+	position: fixed;
+	left: 50%;
+	font-size: 12px;
+	width: 50%;
+	background: whitesmoke;
+	height: 100%;
+	padding: 0 2%;
+	overflow-y: auto;
+}
+
+header {
+	background: #000;
+	color: white;
+	position: absolute;
+	top: 0;
+	height: 6%;
+	width: 100%;
+}
+
+footer {
+	clear: both;
+	position: fixed;
+	bottom: 0;
+	height: 0;
+}
+
+#logo {
+	color: white;
+	text-decoration: none;
+	position: absolute;
+	height: 100%;
+	width: 20%;
+	display:table;
+	background: rgb(44,160,202);
+	transition: 0.1s linear all;
+}
+
+#logo p {
+	font-size: 1.4em; 
+	font-weight: bold;
+  display: table-cell; 
+  vertical-align: middle; 
+  text-align: center;
+}
+
+#logo:hover {
+	color: rgb(44,160,202);
+	background: #000;
+	transition: 0.1s linear all;
+}
+
+#logo span {
+	color: white;
+	font-size:10px;
+	position: relative;
+	top:-12px;
+	left: 2px;
+}
+
+#logo:hover span {
+	color: rgb(44,160,202);
+}
+
+nav {
+	margin-left: 20%;
+	height: 100%;
+	width: 80%;
+	display:table;
+}
+
+nav ul {  
+    padding: 0; 
+	margin: 0;  
+	display: table-cell;
+	vertical-align: middle;
+	padding-left: 2%;
+}  
+
+nav ul li {  
+    display: inline;  
+    list-style: none; /* nécessaire pour IE7 */  
+	margin: 2%;
+}  
+
+nav ul li a {
+	color: white;
+	text-decoration: none;
+	font-size: 14px;
+	display: inline-block;
+	text-align: center;
+}
+
+nav ul li a:hover {
+	color: rgb(44,160,202);
+}
+
+nav ul li a.current {
+	font-weight: bold;
+}
+
+.CodeMirror {
+	height: 94%;
+	width: 100%;
+}
+
+.CodeMirror-scroll {
+	padding-top: 2px;
+}
+
+.clearer {
+	clear: both;
+}
+
+nav {
+	width: 50%;
+}
+
+#button {
+	position: absolute;
+	right: -1px;
+	top: 0;
+	height: 100%;
+	width: 45%;
+	float: right;
+	margin: 0;
+	color: white;
+	text-decoration: none;
+	display: table;
+	vertical-align: middle;
+	text-align: left;
+	padding-left: 5%;
+	background-color: rgb(44,160,202);
+}
+
+#button:hover {
+	background-color: rgb(62,184,229);
+}
+
+#button > span {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+#button.btn-slicer {
+	width: 30%;
+}
+
+input#var_name {
+	position: absolute;
+	left: 50%;
+	top: 0;
+	width: 20%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	padding-left: 10px;
+}
+
+textarea {
+	width: 80%;
+	height: 200px;
+	margin: 5px 0 15px;
+}
+
+ol#details {
+	margin-bottom: 50px;
+}
+
+hr {
+	width: 90%;
+}

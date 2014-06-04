@@ -1,0 +1,75 @@
+ <!doctype html>
+ <html lang="en">
+ <head>
+ 	<meta charset="UTF-8">
+ 	<title>Document</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="codemirror/lib/codemirror.js"></script>
+	<link rel="stylesheet" href="codemirror/lib/codemirror.css">
+	<script src="codemirror/mode/javascript/javascript.js"></script>	
+    <script src="analyzer.js"></script>
+	<script src="escodegen.browser.js"></script>
+	<script src="esprima.js"></script>
+	<script src="http://jsonlint.com/c/js/jsl.format.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+ </head>
+ <body id="ast">
+	<header>
+		
+		<a id="button" href='#' onclick='init();'><span>Cliquez ici pour générer l'arbre syntaxique (AST) !<span></a>
+		<a id="logo" href="index.html"><p>Javascript Analyzer<span>alpha</span></p></a>
+		<nav>
+			<ul><!-- 
+			--><li><a href="index.html">Analyseur</a></li><!-- 
+			--><li><a href="desobfuscator.html">Désobfuscateur</a></li><!-- 
+			--><li><a href="slicer.html">Slicer</a></li><!-- 
+			--><li><a href="#" class="current">AST</a></li>
+			</ul> 
+		</nav>
+	</header>
+	<div id="container">
+		<aside>
+			<div class="clearer"></div>
+			<textarea  id="output">
+				// Cette zone de texte est en lecture seule.
+				// C'est là que l'arbre syntaxique va s'afficher.
+			</textarea>
+		</aside>
+		<section id="main">
+			<textarea id="input">
+				// Entrez ici le code suspect et cliquez sur le bouton pour générer l'AST.
+				
+				// Exemple de code :
+				
+				function behavior(event) {
+					var keya = ''; 
+					keya = event.keyCode;
+					keyb = String.fromCharCode(keya);
+				}
+			</textarea>
+		</section>
+	</div>
+	<script>
+		var editor = CodeMirror.fromTextArea(document.getElementById('input'), {
+			mode:  "javascript",
+			lineNumbers: true
+		});
+		var editor2 = CodeMirror.fromTextArea(document.getElementById('output'), {
+			mode:  "javascript",
+			json: true,
+			lineNumbers: true,
+			readOnly: true
+		});
+		indentAll(editor);
+		function init() {
+			try {
+				ast();
+			}
+			catch(e) {
+				console.err("erreur : " + e);
+				document.getElementById('output').innerHTML = '<h2>Le code entré est incorrect</h2>';
+			}
+		}
+	</script>
+ </body>
+ </html>

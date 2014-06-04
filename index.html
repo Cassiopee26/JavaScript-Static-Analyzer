@@ -1,0 +1,69 @@
+ <!doctype html>
+ <html lang="en">
+ <head>
+ 	<meta charset="UTF-8">
+ 	<title>Document</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="codemirror/lib/codemirror.js"></script>
+	<link rel="stylesheet" href="codemirror/lib/codemirror.css">
+	<script src="codemirror/mode/javascript/javascript.js"></script>	
+    <script src="analyzer.js"></script>
+    <script src="desobfuscator.js"></script>
+	<script src="escodegen.browser.js"></script>
+	<script src="esprima.js"></script>
+    <script src="js_unpacker/beautify-tests.js"></script>
+    <script src="js_unpacker/javascriptobfuscator_unpacker.js"></script>
+    <script src="js_unpacker/urlencode_unpacker.js"></script>
+    <script src="js_unpacker/p_a_c_k_e_r_unpacker.js"></script>
+    <script src="js_unpacker/aaencode_unpacker.js"></script>
+    <script src="js_unpacker/jjencode_unpacker.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+ </head>
+ <body>
+	<header>
+		<a id="button" href='#' onclick='init();'><span>Cliquez ici pour lancer l'analyse !</span></a>
+		<a id="logo" href="index.html"><p>Javascript Analyzer<span>alpha</span></p></a>
+		<nav>
+			<ul><!-- 
+			--><li><a href="#" class="current">Analyseur</a></li><!-- 
+			--><li><a href="desobfuscator.html">Désobfuscateur</a></li><!-- 
+			--><li><a href="slicer.html">Slicer</a></li><!-- 
+			--><li><a href="ast.html">AST</a></li>
+			</ul> 
+	</nav>
+	</header>
+	<div id="container">
+		<aside>
+			<div  id="output"></div>
+		</aside>
+		<section id="main">
+			<textarea id="input">
+				// Entrez ici le code suspect et cliquez sur le bouton pour lancer l'analyse.
+				
+				// Exemple de keylogger :
+				
+				function behavior(event) {
+					var keya = ''; 
+					keya = event.keyCode;
+					keyb = String.fromCharCode(keya);
+				}</textarea>
+		</section>
+	</div>
+	<script>
+		var editor = CodeMirror.fromTextArea(document.getElementById("input"), {
+			mode:  "javascript",
+			lineNumbers: true
+		});
+		indentAll(editor);
+		function init() {
+			try {
+				analyze();
+			}
+			catch(e) {
+				console.err("erreur : " + e);
+				document.getElementById("output").innerHTML = "<h2>Le code entré est incorrect</h2>";
+			}
+		}
+	</script>
+ </body>
+ </html>

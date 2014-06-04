@@ -1,0 +1,92 @@
+ <!doctype html>
+ <html lang="en">
+ <head>
+ 	<meta charset="UTF-8">
+ 	<title>Document</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="codemirror/lib/codemirror.js"></script>
+	<link rel="stylesheet" href="codemirror/lib/codemirror.css">
+	<script src="codemirror/mode/javascript/javascript.js"></script>	
+    <script src="analyzer.js"></script>
+	<script src="escodegen.browser.js"></script>
+	<script src="esprima.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+ </head>
+ <body>
+	<header>
+		<input id="var_name" type="text" value="Entrez ici le nom de la variable" onclick="if(this.value=='Entrez ici le nom de la variable') this.value='';" onblur="if(this.value=='') this.value='Entrez ici le nom de la variable'" autofocus>
+		<a id="button" class="btn-slicer" href='#' onclick='init();'><span>Cliquez ici pour lancer le slicing !</span></a>
+		<div class="clearer"></div>
+		<a id="logo" href="index.html"><p>Javascript Analyzer<span>alpha</span></p></a>
+		<nav>
+			<ul><!-- 
+			--><li><a href="index.html">Analyseur</a></li><!-- 
+			--><li><a href="desobfuscator.html">Désobfuscateur</a></li><!-- 
+			--><li><a href="#" class="current">Slicer</a></li><!-- 
+			--><li><a href="ast.html">AST</a></li>
+			</ul> 
+	</nav>
+	</header>
+	<div id="container">
+		<aside>
+			<textarea  id="output">
+				// Cette zone de texte est en lecture seule.
+				// C'est là que le résultat du slicing va s'afficher.
+			</textarea>
+		</aside>
+		<section id="main">
+			<textarea id="input">
+				// Entrez ici le code à slicer, 
+				// Puis entrez le nom d'une variable dans le champ texte à côté du bouton.
+				//	Enfin, cliquez sur le bouton pour lancer le slicing.
+				
+				// Exemple de code :
+				
+				var a = 42; 			
+				var b = 5; 				
+				var c = 10; 			 
+				var d = 10;				
+				var z = a; 				
+				b = c + a; 				
+				if (b == 5) { 
+				  b = a + c; 
+				} else { 
+				  a = c - b; 
+				} 
+				if (d == 10) { a = b + c; } else { e=10; } 
+				for(var i=0; i < 3; i++) { a++; } 
+				for(var i=0; i < 3; i++) { d++; } 
+				while (d < 10) { a++; } 
+				while (d < 10) { z++; } 
+				a++;
+				a = somme(a, b); 
+				j = somme(a, a); 
+				alert(a);
+				function somme (x, y) {return x+y;} 
+				function useless(a) {return a;}
+</textarea>
+		</section>
+	</div>
+	<script>
+		var editor = CodeMirror.fromTextArea(document.getElementById('input'), {
+			mode:  "javascript",
+			lineNumbers: true
+		});
+		var editor2 = CodeMirror.fromTextArea(document.getElementById('output'), {
+			mode:  "javascript",
+			lineNumbers: true,
+			readOnly: true
+		});
+		indentAll(editor);
+		function init() {
+			try {
+				slice(document.getElementById('var_name').value);
+			}
+			catch(e) {
+				console.err("erreur : " + e);
+				document.getElementById('output').innerHTML = '<h2>Le code entré est incorrect</h2>';
+			}
+		}
+	</script>
+ </body>
+ </html>

